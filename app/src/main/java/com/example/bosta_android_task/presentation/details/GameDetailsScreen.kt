@@ -3,6 +3,7 @@ package com.example.bosta_android_task.presentation.details
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
@@ -192,16 +193,16 @@ fun GameDetailsContent(gameDetails: GameDetails) {
                     LazyRow(
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-//                        items(gameDetails.screenshots) { screenshot ->
-//                            AsyncImage(
-//                                model = screenshot,
-//                                contentDescription = "Screenshot",
-//                                modifier = Modifier
-//                                    .width(200.dp)
-//                                    .height(120.dp),
-//                                contentScale = ContentScale.Crop
-//                            )
-//                        }
+                        items(gameDetails.screenshots) { screenshot ->
+                            AsyncImage(
+                                model = screenshot,
+                                contentDescription = "Screenshot",
+                                modifier = Modifier
+                                    .width(200.dp)
+                                    .height(120.dp),
+                                contentScale = ContentScale.Crop
+                            )
+                        }
                     }
                 }
             }
