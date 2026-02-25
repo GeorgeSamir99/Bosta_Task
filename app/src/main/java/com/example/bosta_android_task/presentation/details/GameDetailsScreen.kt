@@ -1,9 +1,8 @@
-package com.bosta.games.presentation.details
+package com.example.bosta_android_task.presentation.details
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
@@ -16,8 +15,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
-import com.bosta.games.domain.model.GameDetails
-import com.bosta.games.presentation.common.UiState
+import com.example.bosta_android_task.domain.model.GameDetails
 
 /**
  * Game Details Screen - Shows detailed information for a specific game
@@ -194,16 +192,16 @@ fun GameDetailsContent(gameDetails: GameDetails) {
                     LazyRow(
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        items(gameDetails.screenshots) { screenshot ->
-                            AsyncImage(
-                                model = screenshot,
-                                contentDescription = "Screenshot",
-                                modifier = Modifier
-                                    .width(200.dp)
-                                    .height(120.dp),
-                                contentScale = ContentScale.Crop
-                            )
-                        }
+//                        items(gameDetails.screenshots) { screenshot ->
+//                            AsyncImage(
+//                                model = screenshot,
+//                                contentDescription = "Screenshot",
+//                                modifier = Modifier
+//                                    .width(200.dp)
+//                                    .height(120.dp),
+//                                contentScale = ContentScale.Crop
+//                            )
+//                        }
                     }
                 }
             }

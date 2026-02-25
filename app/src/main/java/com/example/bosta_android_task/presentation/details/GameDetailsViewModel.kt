@@ -1,16 +1,18 @@
-package com.bosta.games.presentation.details
+package com.example.bosta_android_task.presentation.details
 
+import UiState
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bosta.games.domain.model.GameDetails
-import com.bosta.games.domain.usecase.GetGameDetailsUseCase
-import com.bosta.games.presentation.common.UiState
+
+import com.example.bosta_android_task.domain.model.GameDetails
+import com.example.bosta_android_task.domain.usecase.GetGameDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
+
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

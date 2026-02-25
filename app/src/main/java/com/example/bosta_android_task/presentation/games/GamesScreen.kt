@@ -1,4 +1,4 @@
-package com.bosta.games.presentation.games
+package com.example.bosta_android_task.presentation.games
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -17,9 +17,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+
 import coil.compose.AsyncImage
-import com.bosta.games.domain.model.Game
-import com.bosta.games.presentation.common.UiState
+import com.example.bosta_android_task.domain.model.Game
+
 
 /**
  * Games List Screen - Main screen showing list of games

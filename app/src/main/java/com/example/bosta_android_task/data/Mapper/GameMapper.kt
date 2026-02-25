@@ -1,10 +1,10 @@
 
 
-import com.bosta.games.domain.model.Game
-import com.bosta.games.domain.model.GameDetails
+
 import com.example.bosta_android_task.data.api.model.GameDetailsDto
 import com.example.bosta_android_task.data.api.model.GameDto
-
+import com.example.bosta_android_task.domain.model.Game
+import com.example.bosta_android_task.domain.model.GameDetails
 
 
 /**

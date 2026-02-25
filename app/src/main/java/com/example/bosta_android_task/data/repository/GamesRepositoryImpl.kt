@@ -1,13 +1,11 @@
-
-
-
-
-import com.bosta.games.domain.model.Game
-import com.bosta.games.domain.model.GameDetails
-import com.bosta.games.domain.repository.GamesRepository
+package com.example.bosta_android_task.data.repository
 import com.example.bosta_android_task.data.api.RawgApiService
+import com.example.bosta_android_task.domain.model.Game
+import com.example.bosta_android_task.domain.model.GameDetails
+import com.example.bosta_android_task.domain.repository.GamesRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import toDomain
 import javax.inject.Inject
 
 /**

@@ -1,7 +1,6 @@
-
-
-import com.bosta.games.domain.repository.GamesRepository
+package com.example.bosta_android_task.domain.usecase
 import com.example.bosta_android_task.domain.model.Game
+import com.example.bosta_android_task.domain.repository.GamesRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

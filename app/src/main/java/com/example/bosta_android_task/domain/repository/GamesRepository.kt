@@ -1,3 +1,4 @@
+package com.example.bosta_android_task.domain.repository
 
 
 import com.example.bosta_android_task.domain.model.Game

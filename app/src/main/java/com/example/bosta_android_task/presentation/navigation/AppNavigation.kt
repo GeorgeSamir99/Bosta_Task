@@ -1,12 +1,11 @@
-package com.example.bosta_android_task.presentation.games
+package com.example.bosta_android_task.presentation.navigation
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.bosta.games.presentation.details.GameDetailsScreen
-import com.bosta.games.presentation.games.GamesScreen
+import com.example.bosta_android_task.presentation.details.GameDetailsScreen
 
 /**
  * Navigation routes for the app
@@ -29,7 +28,7 @@ fun AppNavigation(navController: NavHostController) {
     ) {
         // Games list screen
         composable(route = Screen.Games.route) {
-            GamesScreen(
+            _root_ide_package_.com.example.bosta_android_task.presentation.games.GamesScreen(
                 onGameClick = { gameId ->
                     navController.navigate(Screen.GameDetails.createRoute(gameId))
                 }
