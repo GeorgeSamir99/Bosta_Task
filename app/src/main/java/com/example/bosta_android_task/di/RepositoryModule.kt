@@ -16,9 +16,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RepositoryModule {
     
-    /**
-     * Provides GamesRepository implementation
-     */
+
     @Provides
     @Singleton
     fun provideGamesRepository(
