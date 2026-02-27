@@ -28,6 +28,15 @@ The project demonstrates clean architecture principles, proper state management,
 - Rating
 - Description
 
+## 🧪 Unit Testing
+
+Basic unit tests are implemented for `GamesViewModel`.
+
+The tests verify:
+- Success state emission
+- Error handling
+- Empty state handling
+
 ---
 
 # 🏗 Tech Stack
@@ -38,7 +47,6 @@ The project demonstrates clean architecture principles, proper state management,
 - **Async:** Kotlin Coroutines + Flow
 - **Networking:** Retrofit
 - **Dependency Injection:** Dagger Hilt
-- **Minimum SDK:** 24
 
 ---
 
@@ -62,7 +70,8 @@ The project follows **MVVM architecture combined with Clean Architecture princip
 - DTO models
 - Repository implementations
 - Mapping between DTOs and domain models
-
+  
+### Unit Testing
 # 📂 Project Structure
 
 ```
