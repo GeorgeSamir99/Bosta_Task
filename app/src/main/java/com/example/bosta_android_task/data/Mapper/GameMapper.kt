@@ -6,10 +6,6 @@ import com.example.bosta_android_task.data.api.model.GameDto
 import com.example.bosta_android_task.domain.model.Game
 import com.example.bosta_android_task.domain.model.GameDetails
 
-
-/**
- * Extension function to map GameDto to domain Game model
- */
 fun GameDto.toDomain(): Game {
     return Game(
         id = id,
@@ -23,9 +19,7 @@ fun GameDto.toDomain(): Game {
     )
 }
 
-/**
- * Extension function to map GameDetailsDto to domain GameDetails model
- */
+
 fun GameDetailsDto.toDomain(): GameDetails {
     // Try to get the best quality video URL
     val trailerUrl = clip?.clips?.values?.firstOrNull()?.let {

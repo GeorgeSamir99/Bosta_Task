@@ -16,21 +16,18 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-/**
- * ViewModel for Game Details Screen
- * Handles loading detailed information for a specific game
- */
+
 @HiltViewModel
 class GameDetailsViewModel @Inject constructor(
     private val getGameDetailsUseCase: GetGameDetailsUseCase,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     
-    // UI State
+
     private val _uiState = MutableStateFlow<UiState<GameDetails>>(UiState.Loading)
     val uiState: StateFlow<UiState<GameDetails>> = _uiState.asStateFlow()
     
-    // Game ID from navigation arguments
+
     private val gameId: Int = checkNotNull(savedStateHandle["gameId"]) {
         "gameId is required"
     }
@@ -39,9 +36,7 @@ class GameDetailsViewModel @Inject constructor(
         loadGameDetails()
     }
     
-    /**
-     * Load game details from API
-     */
+
     private fun loadGameDetails() {
         viewModelScope.launch {
             _uiState.value = UiState.Loading
@@ -63,9 +58,7 @@ class GameDetailsViewModel @Inject constructor(
         }
     }
     
-    /**
-     * Retry loading after error
-     */
+
     fun retry() {
         loadGameDetails()
     }

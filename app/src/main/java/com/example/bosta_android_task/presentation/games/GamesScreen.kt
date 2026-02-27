@@ -22,9 +22,7 @@ import coil.compose.AsyncImage
 import com.example.bosta_android_task.domain.model.Game
 
 
-/**
- * Games List Screen - Main screen showing list of games
- */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GamesScreen(
@@ -78,10 +76,10 @@ fun GamesScreen(
                     .padding(16.dp)
             )
             
-            // Content based on state
+
             when (uiState) {
                 is UiState.Idle -> {
-                    // Should not happen
+
                 }
                 
                 is UiState.Loading -> {
@@ -112,9 +110,7 @@ fun GamesScreen(
     }
 }
 
-/**
- * Search bar component
- */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchBar(
@@ -143,9 +139,7 @@ fun SearchBar(
     )
 }
 
-/**
- * Games list with pagination
- */
+
 @Composable
 fun GamesList(
     games: List<Game>,
@@ -184,9 +178,7 @@ fun GamesList(
     }
 }
 
-/**
- * Individual game item card
- */
+
 @Composable
 fun GameItem(
     game: Game,
@@ -203,7 +195,7 @@ fun GameItem(
                 .fillMaxWidth()
                 .padding(12.dp)
         ) {
-            // Game image
+
             AsyncImage(
                 model = game.imageUrl,
                 contentDescription = game.name,
@@ -214,7 +206,7 @@ fun GameItem(
             
             Spacer(modifier = Modifier.width(12.dp))
             
-            // Game info
+
             Column(
                 modifier = Modifier
                     .weight(1f)
@@ -229,7 +221,7 @@ fun GameItem(
                 
                 Spacer(modifier = Modifier.height(4.dp))
                 
-                // Rating
+
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
                         text = "⭐ ${game.getFormattedRating()}",
@@ -260,9 +252,6 @@ fun GameItem(
     }
 }
 
-/**
- * Loading state UI
- */
 @Composable
 fun LoadingContent() {
     Box(
@@ -283,9 +272,7 @@ fun LoadingContent() {
     }
 }
 
-/**
- * Error state UI
- */
+
 @Composable
 fun ErrorContent(
     message: String,
@@ -319,9 +306,7 @@ fun ErrorContent(
     }
 }
 
-/**
- * Empty state UI
- */
+
 @Composable
 fun EmptyContent(searchQuery: String) {
     Box(

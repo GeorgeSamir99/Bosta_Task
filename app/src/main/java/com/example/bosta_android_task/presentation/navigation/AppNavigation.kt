@@ -7,9 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.bosta_android_task.presentation.details.GameDetailsScreen
 
-/**
- * Navigation routes for the app
- */
+
 sealed class Screen(val route: String) {
     object Games : Screen("games")
     object GameDetails : Screen("game_details/{gameId}") {
@@ -17,9 +15,7 @@ sealed class Screen(val route: String) {
     }
 }
 
-/**
- * App navigation graph
- */
+
 @Composable
 fun AppNavigation(navController: NavHostController) {
     NavHost(
@@ -35,7 +31,7 @@ fun AppNavigation(navController: NavHostController) {
             )
         }
         
-        // Game details screen
+
         composable(
             route = Screen.GameDetails.route,
             arguments = listOf(

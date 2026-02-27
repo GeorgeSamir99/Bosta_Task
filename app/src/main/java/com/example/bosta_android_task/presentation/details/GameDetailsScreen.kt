@@ -18,9 +18,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.example.bosta_android_task.domain.model.GameDetails
 
-/**
- * Game Details Screen - Shows detailed information for a specific game
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GameDetailsScreen(
@@ -68,16 +65,14 @@ fun GameDetailsScreen(
                 }
                 
                 else -> {
-                    // Should not happen
+
                 }
             }
         }
     }
 }
 
-/**
- * Game details content
- */
+
 @Composable
 fun GameDetailsContent(gameDetails: GameDetails) {
     LazyColumn(
@@ -85,7 +80,7 @@ fun GameDetailsContent(gameDetails: GameDetails) {
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        // Game header image
+
         item {
             AsyncImage(
                 model = gameDetails.imageUrl,
@@ -97,7 +92,7 @@ fun GameDetailsContent(gameDetails: GameDetails) {
             )
         }
         
-        // Game name
+
         item {
             Text(
                 text = gameDetails.name,
@@ -106,7 +101,7 @@ fun GameDetailsContent(gameDetails: GameDetails) {
             )
         }
         
-        // Rating and release date
+
         item {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -126,7 +121,7 @@ fun GameDetailsContent(gameDetails: GameDetails) {
             }
         }
         
-        // Release date
+
         item {
             InfoSection(
                 title = "Release Date",
@@ -134,7 +129,7 @@ fun GameDetailsContent(gameDetails: GameDetails) {
             )
         }
         
-        // Genres
+
         if (gameDetails.genres.isNotEmpty()) {
             item {
                 InfoSection(
@@ -144,7 +139,7 @@ fun GameDetailsContent(gameDetails: GameDetails) {
             }
         }
         
-        // Platforms
+
         if (gameDetails.platforms.isNotEmpty()) {
             item {
                 InfoSection(
@@ -154,7 +149,7 @@ fun GameDetailsContent(gameDetails: GameDetails) {
             }
         }
         
-        // Description
+
         if (!gameDetails.description.isNullOrEmpty()) {
             item {
                 Card(
@@ -180,7 +175,7 @@ fun GameDetailsContent(gameDetails: GameDetails) {
             }
         }
         
-        // Screenshots
+
         if (gameDetails.screenshots.isNotEmpty()) {
             item {
                 Column {
@@ -210,9 +205,7 @@ fun GameDetailsContent(gameDetails: GameDetails) {
     }
 }
 
-/**
- * Info chip component
- */
+
 @Composable
 fun InfoChip(label: String, value: String) {
     Card(

@@ -1,9 +1,6 @@
 package com.example.bosta_android_task.domain.model
 
-/**
- * Domain model for Game (used in presentation layer)
- * This separates API structure from UI structure
- */
+
 data class Game(
     val id: Int,
     val name: String,
@@ -14,9 +11,7 @@ data class Game(
     val platforms: List<String>,
     val metacriticScore: Int?
 ) {
-    /**
-     * Format rating for display (e.g., "4.5" or "N/A")
-     */
+
     fun getFormattedRating(): String {
         return if (rating > 0.0) {
             String.format("%.1f", rating)
@@ -25,17 +20,13 @@ data class Game(
         }
     }
     
-    /**
-     * Get release year from date string
-     */
+
     fun getReleaseYear(): String? {
         return released?.take(4)
     }
 }
 
-/**
- * Domain model for detailed game information
- */
+
 data class GameDetails(
     val id: Int,
     val name: String,

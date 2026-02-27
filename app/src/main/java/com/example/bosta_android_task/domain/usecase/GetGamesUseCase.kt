@@ -4,20 +4,11 @@ import com.example.bosta_android_task.domain.repository.GamesRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-/**
- * Use case for fetching games list
- * Encapsulates business logic for getting games
- */
+
 class GetGamesUseCase @Inject constructor(
     private val repository: GamesRepository
 ) {
-    /**
-     * Execute the use case
-     * @param page Page number
-     * @param pageSize Number of items per page
-     * @param genreId Optional genre filter
-     * @param searchQuery Optional search query
-     */
+
     operator fun invoke(
         page: Int,
         pageSize: Int = 20,

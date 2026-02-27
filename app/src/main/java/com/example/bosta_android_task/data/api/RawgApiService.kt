@@ -6,21 +6,10 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-/**
- * RAWG API Service
- * Documentation: https://api.rawg.io/docs/
- */
+
 interface RawgApiService {
     
-    /**
-     * Get list of games with optional filters
-     * @param apiKey API key for authentication
-     * @param page Page number for pagination (starts from 1)
-     * @param pageSize Number of results per page (default: 20)
-     * @param genres Genre IDs separated by comma (e.g., "4,51")
-     * @param search Search query for game names
-     * @param ordering Sort order (e.g., "-rating", "-released", "name")
-     */
+
     @GET("games")
     suspend fun getGames(
         @Query("key") apiKey: String,
@@ -30,12 +19,7 @@ interface RawgApiService {
         @Query("search") search: String? = null,
         @Query("ordering") ordering: String? = null
     ): GamesResponse
-    
-    /**
-     * Get detailed information for a specific game
-     * @param id Game ID
-     * @param apiKey API key for authentication
-     */
+
     @GET("games/{id}")
     suspend fun getGameDetails(
         @Path("id") id: Int,
@@ -44,8 +28,7 @@ interface RawgApiService {
     
     companion object {
         const val BASE_URL = "https://api.rawg.io/api/"
-        
-        // Popular genre IDs from RAWG
+
         object Genres {
             const val ACTION = 4
             const val INDIE = 51

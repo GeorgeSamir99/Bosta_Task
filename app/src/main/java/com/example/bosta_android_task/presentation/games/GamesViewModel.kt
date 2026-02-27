@@ -15,39 +15,36 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-/**
- * ViewModel for Games List Screen
- * Handles pagination, search, and filtering
- */
+
 @OptIn(FlowPreview::class)
 @HiltViewModel
 class GamesViewModel @Inject constructor(
     private val getGamesUseCase: GetGamesUseCase
 ) : ViewModel() {
     
-    // UI State
+
     private val _uiState = MutableStateFlow<UiState<List<Game>>>(UiState.Idle)
     val uiState: StateFlow<UiState<List<Game>>> = _uiState.asStateFlow()
     
-    // All loaded games (for local search)
+
     private val _allGames = MutableStateFlow<List<Game>>(emptyList())
     
-    // Current displayed games (filtered or all)
+
     private val _displayedGames = MutableStateFlow<List<Game>>(emptyList())
     val displayedGames: StateFlow<List<Game>> = _displayedGames.asStateFlow()
     
-    // Search query
+
     private val _searchQuery = MutableStateFlow("")
     val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
     
-    // Pagination state
+
     private val _isPaginating = MutableStateFlow(false)
     val isPaginating: StateFlow<Boolean> = _isPaginating.asStateFlow()
     
     private var currentPage = 1
     private var canLoadMore = true
     
-    // Selected genre (null = all genres)
+
     private val _selectedGenreId = MutableStateFlow<Int?>(null)
     val selectedGenreId: StateFlow<Int?> = _selectedGenreId.asStateFlow()
     
@@ -56,9 +53,7 @@ class GamesViewModel @Inject constructor(
         observeSearchQuery()
     }
     
-    /**
-     * Load games from API (initial load)
-     */
+
     fun loadGames() {
         if (_uiState.value is UiState.Loading) return
         
@@ -92,9 +87,7 @@ class GamesViewModel @Inject constructor(
         }
     }
     
-    /**
-     * Load next page (pagination)
-     */
+
     fun loadNextPage() {
         if (!canLoadMore || _isPaginating.value || _searchQuery.value.isNotEmpty()) return
         
@@ -130,20 +123,16 @@ class GamesViewModel @Inject constructor(
         }
     }
     
-    /**
-     * Update search query
-     */
+
     fun onSearchQueryChanged(query: String) {
         _searchQuery.value = query
     }
     
-    /**
-     * Observe search query and filter locally
-     */
+
     private fun observeSearchQuery() {
         viewModelScope.launch {
             _searchQuery
-                .debounce(300) // Wait 300ms after user stops typing
+                .debounce(300)
                 .distinctUntilChanged()
                 .collect { query ->
                     filterGamesLocally(query)
@@ -151,9 +140,7 @@ class GamesViewModel @Inject constructor(
         }
     }
     
-    /**
-     * Filter games locally without API call
-     */
+
     private fun filterGamesLocally(query: String) {
         if (query.isEmpty()) {
             _displayedGames.value = _allGames.value
@@ -175,25 +162,19 @@ class GamesViewModel @Inject constructor(
         }
     }
     
-    /**
-     * Select genre filter
-     */
+
     fun selectGenre(genreId: Int?) {
         _selectedGenreId.value = genreId
         _searchQuery.value = ""
         loadGames()
     }
     
-    /**
-     * Retry loading after error
-     */
+
     fun retry() {
         loadGames()
     }
     
-    /**
-     * Clear search
-     */
+
     fun clearSearch() {
         _searchQuery.value = ""
     }

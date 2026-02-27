@@ -1,9 +1,7 @@
 package com.example.bosta_android_task.data.api.model
 import com.google.gson.annotations.SerializedName
 
-/**
- * Detailed game response from RAWG API
- */
+
 data class GameDetailsDto(
     @SerializedName("id")
     val id: Int,

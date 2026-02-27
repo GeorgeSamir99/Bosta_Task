@@ -1,9 +1,7 @@
 package com.example.bosta_android_task.data.api.model
 import com.google.gson.annotations.SerializedName
 
-/**
- * Response from RAWG API for games list
- */
+
 data class GamesResponse(
     @SerializedName("count")
     val count: Int,
@@ -18,9 +16,7 @@ data class GamesResponse(
     val results: List<GameDto>
 )
 
-/**
- * Game Data Transfer Object from API
- */
+
 data class GameDto(
     @SerializedName("id")
     val id: Int,
