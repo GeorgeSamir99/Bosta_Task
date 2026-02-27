@@ -1,7 +1,7 @@
-# 🎮 Bosta Games App
+# 🎮 Bosta Game Task
 
-A modern Android application that allows users to browse video games by genre using the RAWG API.  
-The project demonstrates clean architecture principles, proper state management, and modern Android development using Jetpack Compose.
+This project was developed as part of the Bosta Android Developer technical assessment.
+
 
 ---
 
